@@ -43,6 +43,11 @@ body {
     justify-content: center;
     border: none;
 }
+.button-left:hover, .button-right:hover {
+    background-color: var(--color-input);
+    border-top: 5px solid var(--color-red);
+    border-bottom: 5px solid var(--color-red);
+}
 .button-left {
     grid-area: left;
     background-color: var(--color-red);
