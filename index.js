@@ -12,12 +12,19 @@ const imgFront = document.querySelector('.img-front')
 const imgBack = document.querySelector('.img-back')
 
 const render = async (name) => {
+    imgFront.src = 'assets/loading.gif', imgBack.src = 'assets/loading.gif'
     const data = await buscar(name)
-    idNow = data.id
-    input.value = ''
-    
-    imgFront.src = data['sprites']['versions']['generation-v']['black-white']['animated']['front_default']
-    imgBack.src = data['sprites']['versions']['generation-v']['black-white']['animated']['back_default'] 
+
+    if (data) {
+        idNow = data.id
+        input.value = ''
+        
+        imgFront.src = data['sprites']['versions']['generation-v']['black-white']['animated']['front_default']
+        imgBack.src = data['sprites']['versions']['generation-v']['black-white']['animated']['back_default'] 
+        }
+    else {
+        imgFront.src = 'assets/not-found.svg', imgBack.src = 'assets/not-found.svg'
+        }
     }
 
 
